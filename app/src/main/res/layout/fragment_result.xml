@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".view.ResultFragment">
+
+    <TextView
+        android:id="@+id/tv_feeds_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="Feeds"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
+        <TextView
+            android:id="@+id/tv_feeds_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Data Tidak Ditemukan, Cek Koneksi Internet Anda"
+            android:textSize="26sp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/btn_add_feeds"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Sumbit Your Ride"
+            android:textSize="20dp"
+            android:visibility="visible"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_feeds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_feeds"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,2 @@
+rootProject.name='BanCulator'
+include ':app'

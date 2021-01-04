@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "757900708201",
+    "project_id": "banculator",
+    "storage_bucket": "banculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757900708201:android:769300c6780e76d460d5f8",
+        "android_client_info": {
+          "package_name": "com.example.banculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757900708201-26p79oumsnc3p71ucsh7klrv9sdc5rvg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.banculator",
+            "certificate_hash": "4e1b3c0f609561ad9634077484710dbe6e81a028"
+          }
+        },
+        {
+          "client_id": "757900708201-5cb77n24vfss6ir6taetmtf4imec5o2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh_n2o8CHH_fYZDLnasABMGzimj8wEsgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757900708201-5cb77n24vfss6ir6taetmtf4imec5o2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
