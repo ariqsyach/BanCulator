@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Edit Profile"
+        android:textSize="24sp"
+        android:layout_gravity="center"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:id="@+id/iv_add_feed"
+        android:layout_gravity="center"
+        android:src="@drawable/abc_vector_test"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_add_tipeMobil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipe Mobil"
+            android:textSize="12sp" />
+
+        <EditText
+            android:layout_weight="4"
+            android:id="@+id/et_add_tipeMobil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="12sp"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="4"
+            android:id="@+id/tv_add_ukuranBan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ukuran Ban"
+            android:textSize="12sp" />
+
+        <EditText
+            android:layout_weight="3"
+            android:id="@+id/et_add_lebar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textSize="12sp"
+
+            tools:ignore="LabelFor" />
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:textSize="12sp" />
+        <EditText
+            android:layout_weight="3"
+            android:id="@+id/et_add_tinggi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textSize="12sp"
+            tools:ignore="LabelFor" />
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:textSize="12sp" />
+        <EditText
+            android:layout_weight="3"
+            android:id="@+id/et_add_diameter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textSize="12sp"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_add_keterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keterangan"
+            android:textSize="12sp" />
+
+        <EditText
+            android:layout_weight="4"
+            android:id="@+id/et_add_keterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="12sp"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="24dp"
+        android:text="Upload" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="24dp"
+        android:text="cancel" />
+
+</LinearLayout>

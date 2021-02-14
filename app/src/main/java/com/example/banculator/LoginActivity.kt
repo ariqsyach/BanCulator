@@ -19,11 +19,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         auth = FirebaseAuth.getInstance()
-//        val currentuser = auth.currentUser
-//        if (currentuser != null) {
-//            startActivity(Intent(this, MainActivity::class.java))
-//            finish()
-//        }
+        val currentuser = auth.currentUser
+        if (currentuser != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
         btn_login.setOnClickListener {
 //            doLogin()
             login()
@@ -37,19 +37,20 @@ class LoginActivity : AppCompatActivity() {
     private fun login() {
         val email = et_email_login.text.toString()
         val pw = et_pw_login.text.toString()
-//
-//        if (TextUtils.isEmpty(et_email_login.text.toString())) {
-//            et_email_login.setError("Please enter username")
-//            return
-//        } else if (TextUtils.isEmpty(et_pw_login.text.toString())) {
-//            et_pw_login.setError("Please enter password")
-//            return
-//        }
-        if (et_email_login.text.toString().isNotEmpty() || et_pw_login.text.toString().isNotEmpty()
+
+        if (et_email_login.text.isEmpty()) {
+            Toast.makeText(this, "Please Insert Email",Toast.LENGTH_LONG).show()
+            return
+        } else if (et_pw_login.text.isEmpty()) {
+            Toast.makeText(this, "Please insert Password", Toast.LENGTH_LONG).show()
+            return
+        } else if (et_email_login.text.toString().isNotEmpty() || et_pw_login.text.toString()
+                .isNotEmpty()
         ) {
             auth.signInWithEmailAndPassword(email, pw)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
+                        updateUI(auth.currentUser)
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     } else {
@@ -57,10 +58,19 @@ class LoginActivity : AppCompatActivity() {
                             .show()
                     }
                 }
-
+            return
+        } else {
+            Toast.makeText(this, "Login Error", Toast.LENGTH_LONG).show()
         }
 
+    }
 
+    private fun updateUI(currentUser: FirebaseUser?) {
+        if (currentUser != null) {
+            Toast.makeText(this, "Login Berhasil", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "Login Gagal", Toast.LENGTH_LONG).show()
+        }
 //    override fun onStart() {
 //        super.onStart()
 //        val currentUser = auth.currentUser
