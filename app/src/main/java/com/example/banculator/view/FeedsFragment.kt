@@ -1,10 +1,8 @@
 package com.example.banculator.view
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -15,28 +13,23 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.banculator.LoginActivity
-
 import com.example.banculator.R
 import com.example.banculator.adapter.AdapterRv
 import com.example.banculator.model.FeedFirestoreData
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
-import kotlinx.android.synthetic.main.dialog_add_feed.*
 import kotlinx.android.synthetic.main.dialog_add_feed.view.*
 import kotlinx.android.synthetic.main.dialog_add_feed.view.btn_cancel
-import kotlinx.android.synthetic.main.fragment_database.*
 import kotlinx.android.synthetic.main.fragment_result.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ResultFragment : Fragment() {
+class FeedsFragment : Fragment() {
     private lateinit var adapter: AdapterRv
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
@@ -66,13 +59,6 @@ class ResultFragment : Fragment() {
         btn_add_feeds.setOnClickListener {
             showEditDialog()
         }
-//        adapter = AdapterRv
-//        rv_feeds.layoutManager = LinearLayoutManager(
-//            this@ResultFragment.requireContext(),
-//            LinearLayoutManager.VERTICAL,
-//            false
-//        )
-//        rv_feeds.adapter = adapter
         getData()
     }
 
@@ -90,7 +76,6 @@ class ResultFragment : Fragment() {
     }
 
     private fun getData() {
-//        val ref = databaseReference.child(auth.currentUser?.uid.toString())
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
@@ -105,7 +90,7 @@ class ResultFragment : Fragment() {
                 if (list.size > 0) {
                     var adapter = AdapterRv(list)
                     rv_feeds.layoutManager = LinearLayoutManager(
-                        this@ResultFragment.requireContext(),
+                        this@FeedsFragment.requireContext(),
                         LinearLayoutManager.VERTICAL,
                         false
                     )
@@ -127,7 +112,6 @@ class ResultFragment : Fragment() {
 
             val currentUser = auth.currentUser?.uid!!.toString()
             val filename = UUID.randomUUID().toString()
-//            val currentUSerDb = databaseReference.child(currentUser).child(filename)
             val currentUSerDb = databaseReference.child(filename)
             val sp = requireActivity().getSharedPreferences("coba", Context.MODE_PRIVATE)
             val imageUrl = sp.getString("feed_image", "")
@@ -148,7 +132,6 @@ class ResultFragment : Fragment() {
                 Toast.makeText(this.context!!, "Berhasil Menaruh ke Database", Toast.LENGTH_LONG)
                     .show()
 
-//                        downloadPhoto(imageUrl)
                     currentUSerDb.child("imageUrl").setValue(imageUrl)
                 getData()
                 dialog.cancel()
@@ -158,7 +141,6 @@ class ResultFragment : Fragment() {
                 intent.type = "image/*"
                 val gambar = intent.data.toString()
                 startActivityForResult(intent, 111)
-//                requestCode = 111
                 if (requestCode == 111) {
                     Glide.with(context!!)
                         .load(imageUrl)
@@ -188,9 +170,6 @@ class ResultFragment : Fragment() {
                         val esp = sp.edit()
                         esp.putString("feed_image", imageUrl)
                         esp.commit()
-//                        downloadPhoto(imageUrl)
-//                        val currentUSerDb = databaseReference.child(filename)
-//                        currentUSerDb.child("imageUrl").setValue(imageUrl)
                         Toast.makeText(
                             this.context!!,
                             "berhasil mengupload gambar",
@@ -205,20 +184,4 @@ class ResultFragment : Fragment() {
             })
 
     }
-
-//    private fun downloadPhoto(url: String) {
-//        Glide.with(context!!)
-//            .load(url)
-//            .into(inflate.iv_add_feed)
-//    }
-
-//    private fun updateUI(currentUser: FirebaseUser?) {
-//        if (currentUser != null) {
-//            Toast.makeText(context!!, "Login Berhasil", Toast.LENGTH_LONG).show()
-//        } else {
-//            Toast.makeText(context!!, "Login Gagal", Toast.LENGTH_LONG).show()
-//
-//        }
-//    }
-
 }

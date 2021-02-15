@@ -25,7 +25,6 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         btn_login.setOnClickListener {
-//            doLogin()
             login()
         }
         tv_login_to_sign.setOnClickListener {
@@ -71,33 +70,5 @@ class LoginActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Login Gagal", Toast.LENGTH_LONG).show()
         }
-//    override fun onStart() {
-//        super.onStart()
-//        val currentUser = auth.currentUser
-//        updateUI(currentUser)
-//    }
-//
-//    private fun updateUI(currentUser: FirebaseUser?) {
-//        if (currentUser != null) {
-//            Toast.makeText(this, "Login Berhasil", Toast.LENGTH_LONG).show()
-//        } else {
-//            Toast.makeText(this, "Login Gagal", Toast.LENGTH_LONG).show()
-//        }
-//    }
-//
-//    private fun doLogin() {
-//        if (et_email_login.text.toString().isNotEmpty() || et_pw_login.text.toString().isNotEmpty()
-//        ) {
-//            val currentUser = auth.currentUser
-//            updateUI(currentUser)
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            Log.e("Task Message", "Succesful")
-//
-//        } else {
-//            Toast.makeText(this, "Input Tidak Boleh Kosong", Toast.LENGTH_LONG).show()
-//        }
-//
     }
-
 }

@@ -1,16 +1,11 @@
 package com.example.banculator.view
 
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
-
 import com.example.banculator.R
 import com.example.banculator.model.HasilHitung
 import com.example.banculator.model.UkuranAkhir
@@ -19,17 +14,15 @@ import com.example.banculator.presenter.InterfaceContract
 import com.example.banculator.presenter.PresenterUkuran
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-//import com.example.banculator.presenter.PresenterUkuranAwal
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.tv_lebar_akhir
 import kotlinx.android.synthetic.main.fragment_home.tv_lebar_awal
 import kotlinx.android.synthetic.main.fragment_home.tv_tinggi_akhir
 import kotlinx.android.synthetic.main.fragment_home.tv_tinggi_awal
-import kotlinx.android.synthetic.main.fragment_result.*
 import kotlin.Int as Int
 
 
-class HomeFragment : Fragment(), InterfaceContract.View {
+class CalculatorFragment : Fragment(), InterfaceContract.View {
 
     private lateinit var database:FirebaseDatabase
     private lateinit var reference:DatabaseReference

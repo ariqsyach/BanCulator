@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.036" />
 
+
     <EditText
         android:id="@+id/et_email_login"
         android:layout_width="match_parent"
@@ -69,6 +70,20 @@
         app:layout_constraintTop_toBottomOf="@+id/et_pw_login"
         app:layout_constraintVertical_bias="0.068" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_email_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/logosmall" />
+
     <TextView
         android:id="@+id/tv_login_to_sign"
         android:layout_width="wrap_content"
@@ -79,7 +94,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

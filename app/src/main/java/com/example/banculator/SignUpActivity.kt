@@ -5,26 +5,17 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import com.example.banculator.view.MainActivity
-import com.google.android.gms.tasks.Continuation
-import com.google.android.gms.tasks.Task
+
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_sign_up.*
-import java.util.*
-import kotlin.collections.HashMap
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var firestore: FirebaseFirestore
     private lateinit var databaseReference: DatabaseReference
     private lateinit var database: FirebaseDatabase
     private lateinit var storage: FirebaseStorage
@@ -64,7 +55,7 @@ class SignUpActivity : AppCompatActivity() {
                         val currentUSerDb = databaseReference.child(currentUser?.uid!!)
                         currentUSerDb.child("username").setValue(uname)
                         currentUSerDb.child("uid").setValue(currentUser?.uid!!)
-                        val currentUserPhoto = storageReference.child(currentUser?.uid!!+".jpg")
+                        val currentUserPhoto = storageReference.child(currentUser?.uid!! + ".jpg")
                         currentUserPhoto.putFile(uri)
                         Toast.makeText(this, "Registration Success. ", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, LoginActivity::class.java)
@@ -83,71 +74,6 @@ class SignUpActivity : AppCompatActivity() {
             Toast.makeText(this, "Mohon Isi Form Yang Kosong", Toast.LENGTH_LONG).show()
         }
     }
-
-//    fun uploadPhotoProfile(uid: String, photoUri: Uri) {
-//        val ref = storageReference.child("profilePicture/$uid.jpg")
-//        ref.putFile(photoUri)
-//            .continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> {
-//                return@Continuation ref.downloadUrl
-//            })
-//            .addOnCompleteListener { task ->
-//                val downloadUri = task.result
-//                if (downloadUri != null) {
-//                    onResult(downloadUri)
-//                }
-//            }
 }
-
-//    public override fun onStart() {
-//        super.onStart()
-//        val currentUser = auth.currentUser
-//        updateUI(currentUser)
-//    }
-//
-//    private fun updateUI(currentUser: FirebaseUser?) {
-//        if (currentUser != null) {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        } else {
-//            Toast.makeText(this, "Login Gagal", Toast.LENGTH_LONG).show()
-//        }
-//    }
-//
-//    fun signUp() {
-//        firestore = FirebaseFirestore.getInstance()
-//        if (et_uname_sign.text.toString().isNotEmpty() || et_email_signup.text.toString()
-//                .isNotEmpty() || et_pw_signup.text.toString().isNotEmpty()
-//        ) {
-//            val uname = et_uname_sign.text.toString()
-//            val email = et_email_signup.text.toString()
-//            val pw = et_pw_signup.text.toString()
-//            auth.createUserWithEmailAndPassword(email, pw)
-//                .addOnCompleteListener(this) { task ->
-//                    if (task.isSuccessful) {
-//                        auth.currentUser?.let {
-////                            val userID = auth.currentUser?.uid!!
-////                            var documentReference = firestore.collection("users").document(userID)
-////                            Map<String, Objects> user = new HashMap<>()
-////                                .put()
-//                            Log.e("Task Message", "Succesful")
-//                            Toast.makeText(this, "Register Berhasil", Toast.LENGTH_LONG).show()
-//                            startActivity(Intent(this, LoginActivity::class.java))
-//                            finish()
-//                        }
-//                    } else {
-//                        Log.e("Task Message", "Not Succesful")
-//                        updateUI(null)
-//                    }
-//
-//                }
-//
-//        } else {
-//            Toast.makeText(this, "Input Tidak Boleh Kosong", Toast.LENGTH_LONG).show()
-//            return
-//        }
-
-//    }
-
-//
 
 

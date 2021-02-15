@@ -20,15 +20,15 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
 
                 R.id.home_menu -> {
-                    navigateFragment(HomeFragment())
+                    navigateFragment(CalculatorFragment())
                     supportActionBar?.title = "Home"
                 }
                 R.id.result_menu -> {
-                    navigateFragment(ResultFragment())
+                    navigateFragment(FeedsFragment())
                     supportActionBar?.title = "Result"
                 }
                 R.id.database_menu -> {
-                    navigateFragment(DatabaseFragment())
+                    navigateFragment(ProfileFragment())
                     supportActionBar?.title = "Database"
                 }
             }

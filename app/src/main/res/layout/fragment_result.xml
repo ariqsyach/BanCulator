@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".view.ResultFragment">
+    tools:context=".view.FeedsFragment">
 
     <TextView
         android:id="@+id/tv_feeds_title"
